@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+
+  <!-- Bootstrap 4 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" />
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- jQuery + Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><span style="color: chartreuse;">
+       
+  <img src="https://elgoss.com/wp-content/uploads/2021/08/elgoss-logo.png" alt="Logo" style="height: 50px;">
+
+
+       
+        <h2 style="font-family: rockwell;">Elgooooos Pvt Ltd.</h2>
+</span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mynavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active"><a class="nav-link" href="#">HOME</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">ABOUT US</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">SERVICES</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">TRAINING</a></li>
+        </ul>
+
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-user"></i> Sign Up</a></li>
+          <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0 ml-2">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search">
+          <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contact Form -->
+  <div class="container mt-4">
+    <h1 class="text-success text-center">Contact Us</h1><br>
+    <div class="col-lg-8 m-auto">
+      <form id="myform" action="" class="bg-light p-4" method="post">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" class="form-control" name="name" placeholder="Full Name">
+          <span id="username" class="text-danger font-weight-bold"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email ID:</label>
+          <input type="email" class="form-control" name="email" placeholder="example@domain.com">
+          <span id="emailid" class="text-danger font-weight-bold"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Contact No.:</label>
+          <input type="tel" class="form-control" name="phone" placeholder="Contact No">
+          <span id="phone" class="text-danger font-weight-bold"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="comment">Comments:</label>
+          <textarea class="form-control" name="comment" rows="5" placeholder="Your message..." style="resize: none;"></textarea>
+          <span id="commentbox" class="text-danger font-weight-bold"></span>
+        </div>
+
+        <button type="submit" class="btn btn-success btn-lg">Submit</button>
+      </form>
+    </div>
+  </div>
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('#myform').bootstrapValidator({
+      feedbackIcons: {
+        valid: 'fa fa-check',
+        invalid: 'fa fa-times',
+        validating: 'fa fa-refresh'
+      },
+      fields: {
+        name: {
+          validators: {
+            notEmpty: {
+              message: 'Please enter your name'
+            },
+            stringLength: {
+              min: 2,
+              message: 'Name must be at least 2 characters long'
+            }
+          }
+        },
+        email: {
+          validators: {
+            notEmpty: {
+              message: 'Please enter your email'
+            },
+            emailAddress: {
+              message: 'The input is not a valid email address'
+            }
+          }
+        },
+        phone: {
+          validators: {
+            notEmpty: {
+              message: 'Please enter your phone number'
+            },
+            regexp: {
+              regexp: /^[0-9]{10}$/,
+              message: 'Phone number must be 10 digits'
+            }
+          }
+        },
+        comment: {
+          validators: {
+            notEmpty: {
+              message: 'Please enter your comment'
+            },
+            stringLength: {
+              min: 10,
+              max: 200,
+              message: 'Comment must be between 10 and 200 characters'
+            }
+          }
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
